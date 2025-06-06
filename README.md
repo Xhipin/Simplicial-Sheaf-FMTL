@@ -56,7 +56,19 @@ To evaluate trained models:
 python evaluate.py --dataset rotated_mnist --model_path results/sheaf_fmtl_rmnist.pth
 ```
 
-## 
+## Results
+
+Our model achieves the following performance:
+
+Rotated MNIST Dataset
+Method	Test Accuracy	Transmitted Bits (MB)	FLOPS (×10¹²)
+Sheaf-FMTL (γ=0.01)	94.3 ± 0.12	38.2	240.7
+Sheaf-FMTL (γ=0.03)	94.5 ± 0.08	165.7	249.3
+dFedU	94.4 ± 0.06	3230.9	1184.4
+D-PSGD	92.22 ± 0.06	3230.9	236.8
+
+
+## Citation
 
 If you use this code in your research, please cite:
 
