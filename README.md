@@ -27,9 +27,16 @@ The experiments use six datasets:
 - **GLEAM:** Google Glass sensor data from 38 individuals
 - **School:** Exam results prediction for 139 schools
  
-R-MNIST and H-CIFAR-10 datasets will be automatically downloaded when running experiments. The rest of datasets can be found in the datasets folder.
+R-MNIST and H-CIFAR-10 datasets will be automatically downloaded when running experiments. The rest of the datasets can be found in the datasets folder.
 
 ## Training
 
 To train Sheaf-FMTL on a specific dataset:
 
+# Rotated MNIST
+python experiments/run_rotated_mnist.py --lambda_reg 0.001 --alpha 0.0005 --eta 0.00001 --gamma 0.01 --num_rounds 200
+
+# Heterogeneous CIFAR-10
+python experiments/run_heterogeneous_cifar10.py --lambda_reg 0.001 --alpha 0.005 --eta 0.01 --gamma 0.01 --num_rounds 150
+
+## Key Parameters
