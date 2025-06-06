@@ -60,9 +60,12 @@ python evaluate.py --dataset rotated_mnist --model_path results/sheaf_fmtl_rmnis
 
 If you use this code in your research, please cite:
 
+
+```bash
 @article{benissaid2025sheaffmtl,
   title={Tackling Feature and Sample Heterogeneity in Decentralized Multi-Task Learning: A Sheaf-Theoretic Approach},
   author={Ben Issaid, Chaouki and Vepakomma, Praneeth and Bennis, Mehdi},
   journal={Transactions on Machine Learning Research},
   year={2025}
 }
+```
