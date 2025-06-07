@@ -1,6 +1,6 @@
 # Tackling Feature and Sample Heterogeneity in Decentralized Multi-Task Learning: A Sheaf-Theoretic Approach
 
-This repository is the official implementation of [Tackling Feature and Sample Heterogeneity in Decentralized Multi-Task Learning: A Sheaf-Theoretic Approach]([https://openreview.net/forum?id=JlPq0LmApB]).
+This repository is the official implementation of [Tackling Feature and Sample Heterogeneity in Decentralized Multi-Task Learning: A Sheaf-Theoretic Approach](https://openreview.net/forum?id=JlPq0LmApB).
 
 ![Sheaf-FMTL Framework](sheaf_framework.png)
 
