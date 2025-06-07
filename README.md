@@ -4,7 +4,7 @@ This repository is the official implementation of [Tackling Feature and Sample H
 
 ![Sheaf-FMTL Framework](docs/sheaf_framework.png)
 
-## Abstract
+## Summarized Abstract
 
 We introduce a novel sheaf-theoretic approach for federated multi-task learning (FMTL) that addresses challenges arising from feature and sample heterogeneity across clients. By representing client relationships using cellular sheaves, our framework flexibly models interactions between heterogeneous client models. Our algorithm, Sheaf-FMTL, achieves substantial communication savings while maintaining competitive performance compared to state-of-the-art decentralized FMTL baselines.
 
