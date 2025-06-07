@@ -2,7 +2,7 @@
 
 This repository is the official implementation of [Tackling Feature and Sample Heterogeneity in Decentralized Multi-Task Learning: A Sheaf-Theoretic Approach](https://arxiv.org/abs/xxxx.xxxxx).
 
-![Sheaf-FMTL Framework](docs/sheaf_framework.png)
+![Sheaf-FMTL Framework](sheaf_framework.png)
 
 ## Summarized Abstract
 
