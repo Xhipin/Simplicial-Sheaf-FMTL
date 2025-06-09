@@ -35,7 +35,7 @@ To train Sheaf-FMTL on a specific dataset:
 
 ```bash
 # Rotated MNIST
-python experiments/run_rotated_mnist.py --lambda_reg 0.001 --alpha 0.0005 --eta 0.00001 --gamma 0.01 --num_rounds 200
+python experiments/run_rotated_mnist.py --lambda_reg 0.001 --alpha 0.005 --eta 0.0001 --gamma 0.01 --num_rounds 200
 
 # Heterogeneous CIFAR-10
 python experiments/run_heterogeneous_cifar10.py --lambda_reg 0.001 --alpha 0.005 --eta 0.01 --gamma 0.01 --num_rounds 150
