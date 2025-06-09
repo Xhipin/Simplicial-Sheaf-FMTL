@@ -15,7 +15,7 @@ from datasets.school import SchoolDataset
 from models.linear import LinearRegression
 from algorithms.sheaf_fmtl import SheafFMTL
 from utils.graph_utils import generate_graph_by_type, visualize_graph, get_graph_statistics
-from utils.metrics import count_model_parameters
+from utils.metrics import calculate_communication_bits, count_model_parameters
 
 def evaluate_mse(model, dataset, batch_size=32):
     """Evaluate MSE for regression task"""
@@ -141,10 +141,7 @@ def main(args):
     num_params = count_model_parameters(client_models[0])
     
     # Calculate communication cost per round
-    total_bits_per_round = 0
-    for node in graph.nodes():
-        num_neighbors = len(list(graph.neighbors(node)))
-        total_bits_per_round += 2 * num_neighbors * int(args.gamma * num_params) * 32
+    total_bits_per_round = calculate_communication_bits(graph, args.gamma, num_params)
     
     print(f"\nStarting training for {args.num_rounds} rounds...")
     print(f"Communication bits per round: {total_bits_per_round:,}")
