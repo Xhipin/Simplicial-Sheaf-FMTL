@@ -30,10 +30,8 @@ def evaluate_all_clients(models, test_datasets):
 def calculate_communication_bits(graph, factor, num_params, bits_per_param=32):
     """Calculate communication bits for one round"""
     total_bits = 0
-    for node in graph.nodes():
-        num_neighbors = len(list(graph.neighbors(node)))
-        # Each client sends and receives from all neighbors
-        total_bits += 2 * num_neighbors * int(factor * num_params) * bits_per_param
+    max_neighbors = max(len(list(graph.neighbors(node))) for node in graph.nodes())
+    total_bits += 2 * max_neighbors * int(factor * num_params) * bits_per_param
     return total_bits
 
 def count_model_parameters(model):
