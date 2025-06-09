@@ -49,12 +49,28 @@ python experiments/run_heterogeneous_cifar10.py --lambda_reg 0.001 --alpha 0.005
 - `--gamma`: Controls the dimension of the interaction space ($d_{ij} = ⌊\gamma d⌋$)
 - `--num_rounds`: Number of communication rounds
 
-## Evaluation
-To evaluate trained models:
+## Visualization
 
-```bash
-python evaluate.py --dataset rotated_mnist --model_path results/sheaf_fmtl_rmnist.pth
-```
+The `utils/visualization.py` module provides comprehensive plotting utilities for analyzing experimental results. Here's how to use them:
+
+### Loading and Plotting Results
+
+```python
+from utils.visualization import (
+    plot_training_curves, plot_comparison, plot_communication_accuracy_tradeoff,
+    plot_client_distribution, plot_restriction_maps_analysis, 
+    save_results_to_json, load_results_from_json
+)
+
+# Load saved results
+results = load_results_from_json('results/sheaf_fmtl_rmnist_gamma0.01.json')
+
+# Plot training curves for a single experiment
+plot_training_curves(
+    results['history'], 
+    title="Sheaf-FMTL on Rotated MNIST",
+    save_path="figures/rmnist_training_curves.png"
+)
 
 ## Results
 
