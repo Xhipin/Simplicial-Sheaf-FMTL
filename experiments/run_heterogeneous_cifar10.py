@@ -48,25 +48,7 @@ def main(args):
     
     # Initialize models (with heterogeneous architectures if specified)
     print("Initializing client models...")
-    if args.heterogeneous_models:
-        client_models = []
-        model_types = ['small', 'medium', 'large']
-        clients_per_type = args.num_clients // 3
-        
-        for i in range(args.num_clients):
-            if i < clients_per_type:
-                model = HeterogeneousCNN.small_cnn(input_channels=3, num_classes=10)
-            elif i < 2 * clients_per_type:
-                model = HeterogeneousCNN.medium_cnn(input_channels=3, num_classes=10)
-            else:
-                model = HeterogeneousCNN.large_cnn(input_channels=3, num_classes=10)
-            client_models.append(model)
-        
-        print(f"Model distribution: {clients_per_type} small, "
-              f"{clients_per_type} medium, "
-              f"{args.num_clients - 2*clients_per_type} large")
-    else:
-        client_models = [CIFAR10CNN(num_classes=10) for _ in range(args.num_clients)]
+    client_models = [CIFAR10CNN(num_classes=10) for _ in range(args.num_clients)]
     
     # Create data loaders
     train_loaders = [
@@ -96,17 +78,8 @@ def main(args):
     cumulative_time = 0
     
     # Calculate bits per round (varies if heterogeneous models)
-    if args.heterogeneous_models:
-        # Calculate average bits based on different model sizes
-        total_bits = 0
-        for i in range(args.num_clients):
-            num_params = count_model_parameters(client_models[i])
-            for j in graph.neighbors(i):
-                total_bits += 2 * int(args.gamma * num_params) * 32
-        bits_per_round = total_bits
-    else:
-        num_params = count_model_parameters(client_models[0])
-        bits_per_round = calculate_communication_bits(graph, args.gamma, num_params)
+    num_params = count_model_parameters(client_models[0])
+    bits_per_round = calculate_communication_bits(graph, args.gamma, num_params)
     
     print(f"\nStarting training for {args.num_rounds} rounds...")
     print(f"Communication bits per round: {bits_per_round:,}")
